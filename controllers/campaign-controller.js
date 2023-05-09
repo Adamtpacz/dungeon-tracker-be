@@ -13,7 +13,7 @@ async function index(req, res, next) {
 // Create
 async function create(req, res, next) {
     try {
-        res.json(await People.create(req.body));
+        res.json(await Campaign.create(req.body));
     } catch (err) {
         res.status(400).json(err);
     }
@@ -22,7 +22,7 @@ async function create(req, res, next) {
 // Show
 async function detail(req, res, next) {
     try {
-        res.json(await People.findById(req.params.id));
+        res.json(await Campaign.findById(req.params.id));
     } catch (err) {
         res.status(400).json(err);
     }
@@ -35,5 +35,5 @@ async function detail(req, res, next) {
 module.exports = {
     index,
     create,
-    getOne: detail
+    detail
 }
