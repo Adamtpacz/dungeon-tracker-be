@@ -13,14 +13,9 @@ router.post("/", campaignCtrl.create)
 router.get("/:id", campaignCtrl.detail);
 
 // Campaign delete route
-router.delete("/:id", (req, res) => {
-	res.status(200).json({message: "campaign delete route: " + req.params.id })
-});
+router.delete("/:id", campaignCtrl.delete)
 
 // Campaign update route
-router.put("/:id", (req, res) => {
-	console.log(req.body)
-	res.status(200).json({message: "campaign update route: " + req.params.id })
-});
+router.put("/:id", campaignCtrl.update)
 
 module.exports = router

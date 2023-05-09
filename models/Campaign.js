@@ -10,7 +10,7 @@ const CampaignSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    endlevel: {
+    endLevel: {
         type: Number,
         required: true
     },
