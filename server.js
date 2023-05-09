@@ -1,24 +1,28 @@
-// DEPENDENCIES
-// initialize .env variables
-require("dotenv").config();
-
-// start the mongoose db connection
+// Dependencies
+require("dotenv").config()
 require('./config/db.connection.js')
 
-// pull PORT from .env, give default value of 4000 and establish DB Connection
-const { PORT } = process.env;
+const express = require("express")
+const morgan = require('morgan')
+const cors = require('cors')
 
-// import express
-const express = require("express");
+const campaignRouter = require('./routes/campaign-router')
 
-// create application object
-const app = express();
+// Configuration
+const app = express()
+const { PORT } = process.env
 
-// ROUTES
-// test route
-app.get("/", (req, res) => {
-    res.send("hello world");
-});
+// Middleware
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
+app.use(cors())
+app.use(morgan("dev"))
 
-// LISTENER
-app.listen(PORT, () => console.log(`listening on PORT ${PORT}`));
+// Router Middleware
+app.use('/campaign', campaignRouter)
+
+// Test Route
+app.get('/', (req, res) => res.send("hello world"))
+
+// Listener
+app.listen(PORT, () => console.log(`listening on PORT ${PORT}`))
