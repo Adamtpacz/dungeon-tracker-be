@@ -15,8 +15,7 @@ const CampaignSchema = new mongoose.Schema({
         required: true
     },
     numOfPlayers: Number,
-    image: String,
-    encounters: mongoose.Schema.Types.ObjectId
+    image: String
 }, {timestamps: true})
 
 module.exports = mongoose.model('Campaign', CampaignSchema)

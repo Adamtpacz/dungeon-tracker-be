@@ -7,7 +7,11 @@ const EncounterSchema = new mongoose.Schema({
     },
     flavorText: String,
     map: String,
-    monsters: Array
+    monsters: Array,
+    campaign: {
+        required: true,
+        type: mongoose.Schema.Types.ObjectId
+    }
 }, {timestamps: true})
 
 module.exports = mongoose.model('Encounter', EncounterSchema)
