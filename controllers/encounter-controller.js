@@ -8,7 +8,6 @@ async function index(req, res, next) {
     }
 }
 
-// Create
 async function create(req, res, next) {
     try {
         res.json(await Encounter.create(req.body));
@@ -17,7 +16,16 @@ async function create(req, res, next) {
     }
 }
 
+async function detail(req, res, next) {
+    try {
+        res.json(await Encounter.findById(req.params.id));
+    } catch (err) {
+        res.status(400).json(err);
+    }
+}
+
 module.exports = {
     index,
-    create
+    create,
+    detail
 }

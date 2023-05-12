@@ -25,10 +25,4 @@ router.get('/:id/encounters', encounterCtrl.index)
 // Encounter create route
 router.post("/:id/encounters", encounterCtrl.create)
 
-// Encounter show route
-
-// Encounter delete route
-
-// Encounter update route
-
 module.exports = router
