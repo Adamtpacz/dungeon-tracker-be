@@ -1,3 +1,4 @@
 module.exports = {
-    Campaign: require('./Campaign')
+    Campaign: require('./Campaign'),
+    Encounter: require('./Encounter')
 }
