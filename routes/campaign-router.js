@@ -2,6 +2,7 @@
 const express = require('express')
 const router = express.Router()
 const campaignCtrl = require('../controllers/campaign-controller.js')
+const encounterCtrl = require('../controllers/encounter-controller.js')
 
 // Campaign index route
 router.get("/", campaignCtrl.index)
@@ -10,7 +11,7 @@ router.get("/", campaignCtrl.index)
 router.post("/", campaignCtrl.create)
 
 // Campaign show route
-router.get("/:id", campaignCtrl.detail);
+router.get("/:id", campaignCtrl.detail)
 
 // Campaign delete route
 router.delete("/:id", campaignCtrl.delete)
@@ -19,14 +20,10 @@ router.delete("/:id", campaignCtrl.delete)
 router.put("/:id", campaignCtrl.update)
 
 // Encounter index route
-router.get('/:id/encounters', async (req, res) => {
-    res.status(200).json({message: "encounter index route"})
-})
+router.get('/:id/encounters', encounterCtrl.index)
 
 // Encounter create route
-router.post("/:id/encounters", async (req, res) =>  {
-	res.status(201).json({message: "encounter create route"})
-})
+router.post("/:id/encounters", encounterCtrl.create)
 
 // Encounter show route
 

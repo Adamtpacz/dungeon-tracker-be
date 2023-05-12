@@ -16,3 +16,8 @@ async function create(req, res, next) {
         res.status(400).json(err);
     }
 }
+
+module.exports = {
+    index,
+    create
+}
