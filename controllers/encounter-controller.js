@@ -24,8 +24,19 @@ async function detail(req, res, next) {
     }
 }
 
+async function update(req, res, next) {
+    try {
+        res.json(
+            await Encounter.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        );
+    } catch (err) {
+        res.status(400).json(err);
+    }
+};
+
 module.exports = {
     index,
     create,
-    detail
+    detail,
+    update
 }
